@@ -116,14 +116,9 @@ class MetisMenu extends React.Component {
 
     if (this.props.ajax !== nextProps.ajax) {
       this.updateRemoteContent(nextProps);
-    } else if (
-      this.props.activeLinkId !== nextProps.activeLinkId ||
-      this.props.activeLinkTo !== nextProps.activeLinkTo ||
-      this.props.activeLinkLabel !== nextProps.activeLinkLabel ||
-      this.props.activeLinkFromLocation !== nextProps.activeLinkFromLocation
-    ) {
-      this.updateActiveLink(nextProps);
-    }
+    } 
+
+    this.updateActiveLink(nextProps);
   }
 
   changeActiveLinkId(value) {

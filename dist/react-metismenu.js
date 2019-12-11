@@ -1944,9 +1944,9 @@ var MetisMenu = function (_React$Component) {
 
       if (this.props.ajax !== nextProps.ajax) {
         this.updateRemoteContent(nextProps);
-      } else if (this.props.activeLinkId !== nextProps.activeLinkId || this.props.activeLinkTo !== nextProps.activeLinkTo || this.props.activeLinkLabel !== nextProps.activeLinkLabel || this.props.activeLinkFromLocation !== nextProps.activeLinkFromLocation) {
-        this.updateActiveLink(nextProps);
       }
+
+      this.updateActiveLink(nextProps);
     }
   }, {
     key: 'changeActiveLinkId',
@@ -5327,7 +5327,9 @@ var content = function content() {
             locationSets.push(window.location.hash.substring(1));
           }
           activeItem = state.find(function (i) {
-            return locationSets.indexOf(i.to) !== -1;
+            return locationSets.find(function (location) {
+              return location.indexOf(i.to) !== -1;
+            });
           });
         } else {
           activeItem = findItem(state, action.value, action.propName);

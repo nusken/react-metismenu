@@ -56,7 +56,7 @@ const content = (state = [], action) => {
         if (window.location.hash.startsWith('#')) {
           locationSets.push(window.location.hash.substring(1));
         }
-        activeItem = state.find(i => locationSets.indexOf(i.to) !== -1);
+        activeItem = state.find(i => locationSets.find(location => location.indexOf(i.to) !== -1));
       } else {
         activeItem = findItem(state, action.value, action.propName);
       }
